@@ -1,6 +1,6 @@
 # Zyfer
 
-Zyfer is an ad-free music web app prototype focused on an immersive, dynamic listening experience.
+Zyfer is an immersive, ad-free music web app prototype with a polished responsive interface and track-responsive color atmosphere.
 
 ## Run in GitHub Codespaces
 
@@ -18,15 +18,14 @@ npm run build
 npm run preview -- --host 0.0.0.0
 ```
 
-## Current features
+## Features
 
-- Responsive music library interface
+- Stylish responsive music library and player
 - Search and track browsing
 - Play, pause, previous, next, seek, and volume controls
-- Track-responsive, animated gradient environment
-- Favorites persist in browser local storage
-- Downloads cache supported tracks and save an MP3 locally
-- Download and favorite state persist after reloading
+- Track-responsive animated gradient environment
+- Persistent favorites and download state
+- Download caching through the browser Cache API
 
 ## Demo audio
 
