@@ -1,33 +1,39 @@
 # Zyfer
 
-Zyfer is an ad-free, immersive music web app prototype. It combines a polished music library experience with a player that continuously adapts its background gradients to the selected track.
+Zyfer is an ad-free music discovery web app prototype. Its feed searches Jamendo's catalog for independent music, plays available streams, and exposes a download action only when the catalog provides an allowed download URL.
 
-## Features
+## Run in GitHub Codespaces
 
-- Animated dynamic gradients for the active track
-- Music search and track browsing
-- Play, pause, previous, next, volume, and seeking controls
-- Favorites and downloaded-track states
-- Responsive desktop and mobile layouts
-- Download action and simulated offline library state
-- Audio playback using sample streams
-
-## Run locally
+Open the repository in a Codespace, then run:
 
 ```bash
 npm install
-npm run dev
+cp .env.example .env.local
 ```
 
-Open the local URL printed by Vite.
+Register for a Jamendo API client ID at <https://developer.jamendo.com/v3.0>, then put it in `.env.local`:
 
-## Production build
+```env
+VITE_JAMENDO_CLIENT_ID=your_client_id
+```
+
+Start the Vite development server:
 
 ```bash
-npm run build
-npm run preview
+npm run dev -- --host 0.0.0.0
 ```
 
-## Music licensing
+Open port **5173** from the Codespaces **Ports** tab. After changing `.env.local`, restart the dev server for Vite to load the value.
 
-The current demo uses public sample MP3 streams for interface testing. Before launch, replace them with properly licensed music supplied by your catalog or by artists who authorize distribution.
+## Features
+
+- Discover feed with popular tracks and keyword search
+- Streaming playback, seek, and pause controls
+- Favorites stored for the current browser session
+- Direct download links only where the API returns a download URL and permits downloading
+- Artist/track links and track-license links when supplied by the catalog
+- Responsive layout
+
+## Important licensing and security notes
+
+The Jamendo client ID is included in browser requests; it is a public application identifier, not a secret. Do not put secret credentials in a `VITE_` variable. Review Jamendo's current API terms and obtain any required permissions for your intended audience and commercial use. Music licenses and download permissions vary by track. Preserve required attribution and license notices. A production service should use a backend for catalog integration, rate limiting, and policy enforcement.
